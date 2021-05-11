@@ -38,13 +38,13 @@ void DeepvacSB::reset() noexcept {
     hsv_diff_vec_.clear();
 }
 
-void DeepvacSB::cacheFeatureFromRgbFrame(const unsigned char* rgb, const int width, const int height) noexcept {
+void DeepvacSB::cacheFeatureFromHwcBgrFrame(const unsigned char* bgr, const int width, const int height) noexcept {
     //auto start = std::chrono::system_clock::now();
     unsigned int result_rgb[DeepvacSB::channels_][DeepvacSB::hist_size_] = {0};
     width_ = width == 0 ? width_ : width;
     height_ = height ==0 ? height_ : height;
     //hist
-    calcHistRGB(rgb, result_rgb);
+    calcHistRGB(bgr, result_rgb);
     for(int i = 0; i < DeepvacSB::hist_size_; ++i) {
         for(int c=0; c<DeepvacSB::channels_; c++){
             hist_info_.push_back(result_rgb[c][i]);

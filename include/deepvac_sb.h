@@ -18,7 +18,7 @@ public:
     }
 
     void reset() noexcept;
-    void cacheFeatureFromRgbFrame(const unsigned char* rgb, const int width, const int height) noexcept;
+    void cacheFeatureFromHwcBgrFrame(const unsigned char* bgr, const int width, const int height) noexcept;
     std::vector<unsigned int> getSbIdx() noexcept;
 
 private:
