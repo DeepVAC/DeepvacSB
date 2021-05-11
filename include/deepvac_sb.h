@@ -18,8 +18,8 @@ public:
     }
 
     void reset() noexcept;
-    void appendFrameRGB(const unsigned char* rgb, const int width, const int height) noexcept;
-    std::vector<unsigned int> getSbdIdx() noexcept;
+    void cacheFeatureFromRgbFrame(const unsigned char* rgb, const int width, const int height) noexcept;
+    std::vector<unsigned int> getSbIdx() noexcept;
 
 private:
     static const int channels_{3};

@@ -9,7 +9,7 @@
 constexpr int DeepvacSB::resolution_ratio_level_[]{3200, 2100, 1700, 1200, 900, 600, 400};
 constexpr int DeepvacSB::downsample_factor_[]{12, 8, 6, 5, 4, 3, 2, 1};
 
-std::vector<unsigned int> DeepvacSB::getSbdIdx() noexcept {
+std::vector<unsigned int> DeepvacSB::getSbIdx() noexcept {
     std::vector<unsigned int> sbd_indexs;
     //auto start = std::chrono::system_clock::now();
     auto size = hist_info_.size();
@@ -38,7 +38,7 @@ void DeepvacSB::reset() noexcept {
     hsv_diff_vec_.clear();
 }
 
-void DeepvacSB::appendFrameRGB(const unsigned char* rgb, const int width, const int height) noexcept {
+void DeepvacSB::cacheFeatureFromRgbFrame(const unsigned char* rgb, const int width, const int height) noexcept {
     //auto start = std::chrono::system_clock::now();
     unsigned int result_rgb[DeepvacSB::channels_][DeepvacSB::hist_size_] = {0};
     width_ = width == 0 ? width_ : width;
